@@ -1,0 +1,28 @@
+server:
+  port: 31090
+
+spring:
+  application:
+    name: repository-database-apply
+
+---
+spring.profiles: dev
+spring.profiles.include: repository-database-apply, springcloud, db, com
+spring:
+  cloud:
+    config:
+      name: dzzd-app
+      uri: http://localhost:30010
+      username: user
+      password: bcda9f94-5741-4735-ae17-2ba92abf7ea4
+
+---
+spring.profiles: local
+spring.profiles.include: repository-database-apply, springcloud, db, com
+spring:
+  cloud:
+    config:
+      name: dzzd-app
+      uri: http://192.168.2.89:30010
+      username: user
+      password: 5e3232a9-61f8-4dec-acbc-17f48ea4baf5
